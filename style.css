@@ -332,10 +332,30 @@ h3 + .edit-time {
 .stats {
   height: fit-content;
   background: #fff;
+  border: 1px solid #ddd;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.stats h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #343a40; /* Тёмный текст */
+}
+
+.stats p {
+  font-size: 1em;
+  margin: 10px 0;
+  line-height: 1.5;
+  color: #495057;
+}
+
+.stats span {
+  font-weight: bold;
+  color: #007bff; /* Акцент на синие числа */
 }
 
 
@@ -417,4 +437,19 @@ h3 + .edit-time {
   color: white;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.workout-item.completed {
+  background-color: rgba(0, 255, 0, 0.2); /* Зелёный прозрачный фон */
+  border-left: 5px solid #28a745; /* Зелёная полоса сбоку */
+  transition: all 0.3s ease;
+}
+
+.completed-section {
+  margin-top: 10px;
+}
+
+.completed-section label {
+  font-size: 0.9em;
+  cursor: pointer;
 }

@@ -48,11 +48,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const [hours, minutes] = workout.time.split(":").map(Number);
       return acc + hours * 60 + minutes;
     }, 0);
+    const completedWorkouts = workouts.filter((workout) => workout.completed).length;
+  
     const hours = Math.floor(totalTimeMinutes / 60).toString().padStart(2, "0");
     const minutes = (totalTimeMinutes % 60).toString().padStart(2, "0");
+  
     document.getElementById("total-workouts").textContent = totalWorkouts;
     document.getElementById("total-time").textContent = `${hours}:${minutes}`;
+    document.getElementById("completed-workouts").textContent = completedWorkouts;
   };
+  
 
   // Рендер списка тренировок
   const renderWorkouts = () => {
@@ -61,6 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     workouts.forEach((workout, index) => {
       const li = document.createElement("li");
+      li.classList.add("workout-item");
+      if (workout.completed) li.classList.add("completed");
+
       li.innerHTML = `
         <div class="workout-header">
           <h3 contenteditable="true" class="editable" data-index="${index}">${workout.name}</h3>
@@ -68,6 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <p>Время: <input type="time" class="edit-time" data-index="${index}" value="${workout.time}"></p>
         <p>Дата: <input type="date" class="edit-date" data-index="${index}" value="${workout.date}"></p>
+        <div class="completed-section">
+          <label>
+            <input type="checkbox" class="mark-completed" data-index="${index}" ${
+        workout.completed ? "checked" : ""
+      }>
+            Выполнена
+          </label>
+        </div>
         <button class="btn btn-delete" data-index="${index}">Удалить</button>
       `;
       workoutList.appendChild(li);
@@ -148,6 +164,17 @@ generateCalendar(now.getFullYear(), now.getMonth());
     }
   });
 
+  workoutList.addEventListener("change", (e) => {
+    const index = e.target.dataset.index;
+
+    // Отметка "Выполнена"
+    if (e.target.classList.contains("mark-completed")) {
+      workouts[index].completed = e.target.checked;
+      saveWorkouts();
+      renderWorkouts();
+    }
+  });
+
   workoutList.addEventListener("input", (e) => {
     const index = e.target.dataset.index;
 
@@ -183,6 +210,7 @@ generateCalendar(now.getFullYear(), now.getMonth());
         time,
         date,
         favorite: false,
+        completed: false,
       });
       saveWorkouts();
       renderWorkouts();
