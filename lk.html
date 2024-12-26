@@ -1,0 +1,70 @@
+<!-- lk.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <div class="workout">
+      <div class="add-workout">
+        <h2>Добавить тренировку</h2>
+        <form id="workout-form">
+          <input type="text" id="workout-name" placeholder="Название тренировки" required>
+          <input type="time" id="workout-time" required>
+          <input type="date" id="workout-date" required> <!-- Поле для выбора даты -->
+          <button type="submit" class="btn">Добавить</button>
+        </form>
+      </div>
+      <div class="workout-feed">
+        <h2>Мои тренировки</h2>
+        <ul id="workout-list"></ul>
+      </div>
+    </div>
+
+    <div class="calendar">
+      <h2>Календарь тренировок</h2>
+      <div id="calendar-container"></div>
+    </div>
+    
+    <div class="stats">
+      <h2>Статистика</h2>
+      <p>Общее количество тренировок: <span id="total-workouts">0</span></p>
+      <p>Общее время тренировок: <span id="total-time">00:00</span></p>
+      <p>Выполненные пункты: <span id="completed-steps">0</span></p>
+    </div>
+    
+    <div class="personal-account">
+      <h1>Личный кабинет</h1>
+      <div id="user-info">
+        <p><strong>Имя:</strong> <span id="user-name"></span></p>
+        <p><strong>Email:</strong> <span id="user-email"></span></p>
+      </div>
+      <button id="edit-user-button">Редактировать данные</button>
+      <div class="settings">
+        <h2>Настройки</h2>
+        <button id="theme-toggle">Переключить тему</button>
+        <button id="reset-data">Сбросить данные</button>
+      </div>
+      <button id="logout-button">Выйти</button>
+      <div id="edit-modal" class="hidden fade-in">
+        <div class="modal-content">
+          <h2>Редактировать данные</h2>
+          <form id="edit-user-form">
+            <label for="edit-name">Имя:</label>
+            <input type="text" id="edit-name" required>
+            <label for="edit-email">Email:</label>
+            <input type="email" id="edit-email" required>
+            <button type="submit" class="btn">Сохранить</button>
+          </form>
+          <button id="close-modal" class="btn">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="lk.js"></script>
+</body>
+</html>

@@ -1,0 +1,420 @@
+/* Основной фон */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: darkgray;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Скрытый элемент */
+.hidden {
+  display: none;
+}
+
+label, input, button {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Контейнер форм */
+.form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.container {
+  display: flex;
+    margin-top: 200px;
+    justify-content: center;
+}
+
+/* Заголовки */
+h1, h2 {
+  text-align: center;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Поля ввода */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1em;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Кнопки */
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: linear-gradient(to right, #0056b3, #007bff);
+  transform: scale(1.05);
+}
+
+/* Карточки тренировок */
+.workout-feed {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workout-feed ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.workout-feed li {
+  margin: 15px 0;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.workout-feed li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Переключение между формами */
+.switch-form {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1em;
+}
+
+.switch-form a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.switch-form a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Блок добавления тренировок */
+.add-workout {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-workout input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.add-workout button {
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.favorite-checkbox {
+  margin-right: 5px;
+}
+
+.editable {
+  outline: none;
+  cursor: text;
+}
+
+.editable:focus {
+  border-bottom: 1px dashed #007bff;
+}
+
+/* Кнопка удаления */
+.btn-delete {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background: #cc0000;
+}
+
+
+
+.add-workout label {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.edit-time {
+  width: auto;
+  display: inline-block;
+  padding: 5px;
+  margin-left: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.edit-time:focus {
+  border-color: #007bff;
+}
+
+h3 {
+  display: inline-block;
+  margin: 0;
+}
+
+h3 + .edit-time {
+  margin-left: 15px;
+}
+
+.workout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.favorite-icon {
+  font-size: 1.5em;
+  cursor: pointer;
+  user-select: none;
+  color: #ffbf00; /* Цвет для избранного */
+  transition: transform 0.2s ease;
+}
+
+.favorite-icon:hover {
+  transform: scale(1.2);
+}
+
+.favorite-icon:not(.favorite) {
+  color: #ccc; /* Цвет для неактивного */
+}
+
+/* Сетка для блоков */
+.dashboard {
+  display: flex;
+  gap: 20px; /* Расстояние между блоками */
+  /* flex-direction: row-reverse; */
+    justify-content: space-between;
+}
+
+.dashboard h1 {
+  grid-area: user-info;
+  text-align: right;
+  margin-bottom: 0;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+#logout-button {
+  grid-area: user-info;
+  text-align: right;
+  margin-top: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#logout-button:hover {
+  background: #0056b3;
+}
+
+.add-workout,
+.workout-feed, 
+.personal-account{
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+/* .workout-item {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+.workout {
+  width: 30%;
+  gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar {
+  height: fit-content;
+  width: 30%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stats {
+  height: fit-content;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* стили календаря */
+#calendar-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendar-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.calendar-day:hover {
+  background: #007bff;
+  color: white;
+}
+
+.calendar-day.selected {
+  background: #0056b3;
+  color: white;
+}
+
+.calendar-day .day-number {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+
+/* Подсветка дней с тренировками */
+.calendar-day.highlight {
+  background-color: #007bff; /* Основной цвет подсветки */
+  color: white; /* Цвет текста */
+  font-weight: bold; /* Жирный текст */
+  border: 2px solid #0056b3; /* Дополнительная рамка */
+  border-radius: 8px; /* Округлённые углы */
+  transition: all 0.3s ease; /* Плавный переход */
+}
+
+/* Наведение на подсвеченные дни */
+.calendar-day.highlight:hover {
+  background-color: #0056b3; /* Темнее при наведении */
+  transform: scale(1.05); /* Увеличение */
+}
+
+/* Обычные дни календаря */
+.calendar-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Наведение на обычные дни */
+.calendar-day:hover {
+  background: #007bff;
+  color: white;
+  transform: scale(1.05); /* Лёгкое увеличение */
+}
+
+/* Выбранный день */
+.calendar-day.selected {
+  background-color: #0056b3; /* Цвет выбранного дня */
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
